@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Taqi Tahmid">
+    <title>Single Page Layout</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Courgette&family=Mooli&display=swap');
+        
+        /* CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Mooli', sans-serif;
+        }
+        
+        /* Header Section */
+        header {
+            background-color: rgba(65, 105, 225, 0.9);
+            margin: 0 auto;
+            padding: 25px 30px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+        }
+        
+        #webname {
+            font-family: 'Courgette', cursive;
+            font-weight: 700;
+            font-size: 28px;
+        }
+        
+        ul {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+        
+        li {
+            list-style: none;
+            padding: 0 10px;
+            font-size: 18px;
+        }
+        
+        a {
+            text-decoration: none;
+            color: white;
+        }
+        
+        ul li a {
+            padding: 8px 10px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        li a:hover {
+            background-color: white;
+            color: royalblue;
+        }
+        
+        .icons {
+            display: none;
+        }
+        
+        /* Main Section */
+        
+        main {
+            background-color: white;
+            color: black;
+        }
+        
+        .table {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        
+        .left,
+        .right {
+            width: 40%;
+        }
+        
+        h2 {
+            font-size: 30px;
+        }
+        
+        h2 span {
+            color: cadetblue;
+            font-size: 38px;
+            font-weight: 900;
+        }
+        
+        p {
+            text-align: justify;
+            font-size: 16px;
+        }
+        
+        .buttons {
+            margin: 15px 20px 15px 0;
+            padding: 10px 20px;
+            background-color: royalblue;
+            color: white;
+            border: 2px solid gray;
+            border-radius: 20px;
+            transition: all 0.5s ease;
+        }
+        
+        .buttons:hover {
+            background-color: white;
+            color: royalblue;
+            font-weight: 700;
+            scale: 1.1;
+        }
+        
+        .right img {
+            width: 80%;
+            display: block;
+            margin: 0 auto;
+            border-radius: 5px;
+        }
+        
+        /* Footer Section */
+        
+        footer {
+            background-color: royalblue;
+            color: white;
+            min-height: 80px;
+            padding: 20px 30px;
+            position: relative;
+            bottom: 0;
+        }
+        
+        @media screen and (max-width: 768px) {
+            /* Header Section */
+        
+            ul {
+                position: absolute;
+                top: 0;
+                left: -100%;
+                height: 100vh;
+                width: 60vw;
+                background-color: white;
+                flex-direction: column;
+                flex-wrap: wrap;
+                align-items: flex-start;
+                justify-content: flex-start;
+                transition: all 0.4s ease-in-out;
+            }
+        
+            .showMenu {
+                left: 0;
+            }
+        
+            ul li {
+                padding: 15px 20px;
+            }
+        
+            ul li a {
+                color: black;
+            }
+        
+            .icons {
+                display: inline-block;
+                height: 20px;
+                position: relative;
+            }
+        
+            #bar {
+                top: 0;
+                left: 30%;
+            }
+        
+            #cross {
+                top: 5%;
+                left: 88%;
+            }
+        
+            /* Main section */
+        
+            .table {
+                flex-direction: column-reverse;
+            }
+        
+            .left,
+            .right {
+                width: 80%;
+            }
+        
+            .right img {
+                width: 95%;
+            }
+        
+            .left {
+                padding-top: 100px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="#" id="webname">T T Website</a>
+        <img src="bar.png" class="icons" id="bar">
+        <nav>
+            <ul>
+                <img src="cross.png" class="icons" id="cross">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Our Founder</a></li>
+                <li><a href="#">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <br> <br> <br> <br>
+    <main>
+        <div class="table">
+            <div class="left">
+                <h2>Welcome to our <span>platform</span></h2> <br>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste corporis eveniet deleniti hic
+                    temporibus exercitationem recusandae ipsa delectus eaque quod velit eius doloremque molestias
+                    officia repudiandae repellendus nemo minus, voluptates facere! Eveniet non autem, illum qui
+                    quibusdam minima libero consequuntur! Recusandae suscipit quos perferendis maiores! Deserunt sunt
+                    distinctio porro nihil? </p>
+                <button class="buttons">Read More</button>
+                <button class="buttons">Contact Us</button>
+            </div>
+            <div class="right"><img
+                    src="https://th.bing.com/th/id/R.5b2b65c390263761e8089fe42c617512?rik=Krk%2bsJW%2baIUIWw&riu=http%3a%2f%2fimages5.fanpop.com%2fimage%2fphotos%2f28000000%2frandomised-random-28065165-1024-819.jpg&ehk=5EwtKjhNaCpv2WoxrGQ6hQfUGbEnlkAb3g5OZSIKIhc%3d&risl=&pid=ImgRaw&r=0"
+                    alt="random image"></div>
+        </div>
+    </main>
+    <br> <br> <br> <br>
+    <footer>
+        <p>&copy;Copyright || T T website. We care about your privacy. All the information that you entered are
+            protected and safe here.</p>
+    </footer>
+    <script>
+        var icons = document.querySelectorAll('.icons');
+        var links = document.querySelector('ul');
+            
+        for(let i of icons) {
+            i.addEventListener('click', () => {
+                links.classList.toggle('showMenu');
+            })}
+    </script>
+</body>
+
+</html>
