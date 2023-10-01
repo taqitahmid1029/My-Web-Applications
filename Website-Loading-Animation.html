@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Taqi Tahmid">
+    <title>Website Loader</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --duration: 2s;
+            --iteration-count: infinite;
+        }
+
+        body {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            height: 200px;
+            width: 200px;
+        }
+
+        #cir1,
+        #cir2,
+        #cir3,
+        #cir4 {
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        #cir1 {
+            background-color: violet;
+            top: 25px;
+            left: 25px;
+            animation: cir1 var(--duration) ease 0s var(--iteration-count);
+        }
+
+        #cir2 {
+            background-color: blue;
+            bottom: 25px;
+            left: 125px;
+            animation: cir2 var(--duration) ease 0s var(--iteration-count);
+        }
+
+        #cir3 {
+            background-color: red;
+            top: 25px;
+            left: 25px;
+            animation: cir3 var(--duration) ease 0s var(--iteration-count);
+        }
+
+        #cir4 {
+            background-color: orange;
+            bottom: 25px;
+            left: 125px;
+            animation: cir4 var(--duration) ease 0s var(--iteration-count);
+        }
+
+        @keyframes cir1 {
+            0% {
+                top: 25px;
+                left: 25px;
+            }
+
+            25% {
+                top: 25px;
+                left: 125px;
+            }
+
+            50% {
+                top: 125px;
+                left: 125px;
+            }
+
+            75% {
+                top: 125px;
+                left: 25px;
+            }
+
+            100% {
+                top: 25px;
+                left: 25px;
+            }
+        }
+
+        @keyframes cir2 {
+            0% {
+                bottom: 25px;
+                left: 125px;
+            }
+
+            25% {
+                bottom: -75px;
+                left: 125px;
+            }
+
+            50% {
+                bottom: -75px;
+                left: 25px;
+            }
+
+            75% {
+                bottom: 25px;
+                left: 25px;
+            }
+
+            100% {
+                bottom: 25px;
+                left: 125px;
+            }
+        }
+
+        @keyframes cir3 {
+            0% {
+                top: 25px;
+                left: 25px;
+            }
+
+            25% {
+                top: -75px;
+                left: 25px;
+            }
+
+            50% {
+                top: -75px;
+                left: 125px;
+            }
+
+            75% {
+                top: 25px;
+                left: 125px;
+            }
+
+            100% {
+                top: 25px;
+                left: 25px;
+            }
+        }
+
+        @keyframes cir4 {
+            0% {
+                bottom: 25px;
+                left: 125px;
+            }
+
+            25% {
+                bottom: 25px;
+                left: 25px;
+            }
+
+            50% {
+                bottom: 125px;
+                left: 25px;
+            }
+
+            75% {
+                bottom: 125px;
+                left: 125px;
+            }
+
+            100% {
+                bottom: 25px;
+                left: 125px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="cir1"></div>
+        <div id="cir2"></div>
+        <div id="cir3"></div>
+        <div id="cir4"></div>
+    </div>
+</body>
+
+</html>
