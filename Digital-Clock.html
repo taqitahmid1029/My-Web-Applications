@@ -1,142 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Clock</title>
+    <title>Digital Clock - Taqi Tahmid</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
         * {
             margin: 0;
             padding: 0;
+            color: white;
+            font-family: 'Poppins', sans-serif;
             box-sizing: border-box;
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 30px;
+        }
+
+        body {
+            background-color: rgba(68,93,104,1);
+            height: 100vh;
+            width: 100vh;
+            display: flex;
+            flex-wrap: wrap;
+            align-content: center;
+            justify-content: center;
         }
 
         .container {
-            height: 100vh;
-            width: 100vw;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-content: center;
-            background: linear-gradient(0deg, rgba(215,255,241,1) 0%, rgba(170,252,184,1) 33%, rgba(140,215,144,1) 67%, rgba(119,175,156,1) 100%);
-            color: rgb(0, 0, 0);
-        }
-
-        .clock {
-            background-color: rgba(255, 255, 255, 0.21);
-            border-radius: 40px;
+            background-color: #5E503F;
+            width: 450px;
+            padding: 1.3rem;
+            border-radius: 0.4rem;
+            box-shadow: 0px 0px 20px 20px #5E503F;
         }
 
         td {
             text-align: center;
-            padding: 20px;
+            width: 100px;
+            padding: 0.6rem;
         }
 
-        #hours::after {
-            content: "HOUR";
-            font-size: 16px;
-            position: relative;
-            top: 25px;
-            left: -48px;
+        #hours, #minutes, #seconds, #dates, #days {
+            font-size: 2rem;
         }
 
-        #minutes::after {
-            content: "MINUTE";
-            font-size: 16px;
-            position: relative;
-            top: 25px;
-            left: -48px;
-        }
-
-        #seconds::after {
-            content: "SECOND";
-            font-size: 16px;
-            position: relative;
-            top: 25px;
-            left: -48px;
+        .small {
+            font-size: 0.8rem;
         }
     </style>
 </head>
-
 <body>
     <div class="container">
-        <table class="clock">
+        <table>
             <tr>
-                <td id="hours"></td>
+                <td><span id="hours"></span> <br> <span class="small">HOUR</span></td>
                 <td>:</td>
-                <td id="minutes"></td>
+                <td><span id="minutes"></span> <br> <span class="small">MINUTE</span></td>
                 <td>:</td>
-                <td id="seconds"></td>
+                <td><span id="seconds"></span> <br> <span class="small">SECOND</span></td>
             </tr>
             <tr>
-                <td colspan="3" id="date"></td>
-                <td colspan="2" id="day"></td>
+                <td colspan="3"><span id="dates"></span></td>
+                <td colspan="2"><span id="days"></span></td>
             </tr>
         </table>
     </div>
 
     <script>
-        var hours = document.getElementById('hours');
-        var minutes = document.getElementById('minutes');
-        var seconds = document.getElementById('seconds');
-        var date = document.getElementById('date')
-        var day = document.getElementById('day')
-
-        const doubleDigit = (single) => {
-            return '0' + single.toString();
+        function doubleDigit(singleDigit) {
+            if (singleDigit < 10 && singleDigit >= 0) {
+                return `0${singleDigit.toString()}`;
+            } else {
+                return singleDigit;
+            }
         }
 
         setInterval(() => {
-            // Getting Date Object
-            let myDate = new Date();
+            var datestr = new Date();
+            var dayarr = ['Sunday', 'Monday', 'Tuesday', 'Wednessday', 'Thursday', 'Friday', 'Saturday'];
 
-            // Updating Time
-            let mySecond = myDate.getSeconds();
-            let myMinute = myDate.getMinutes();
-            let myHour = myDate.getHours();
-
-            if (mySecond < 10) {
-                mySecond = doubleDigit(mySecond);
-            }
-            if (myMinute < 10) {
-                myMinute = doubleDigit(myMinute);
-            }
-            if (myHour < 10) {
-                myHour = doubleDigit(myHour);
-            }
-
-            hours.innerHTML = myHour;
-            minutes.innerHTML = myMinute;
-            seconds.innerHTML = mySecond;
-
-            // Updating Date
-            let DD = myDate.getDate();
-            let MM = myDate.getMonth();
-            let YYYY = myDate.getFullYear();
-
-            if (DD < 10) {
-                DD = doubleDigit(DD);
-            }
-            if (MM < 10) {
-                MM = doubleDigit(MM);
-            }
-
-            date.innerHTML = `${DD} / ${MM} / ${YYYY}`
-
-            // Updating Day
-            let myDay = myDate.getDay();
-            const myDayArr = ['Sunday', 'Monday', 'Tuesday', 'Wednessday', 'Thursday', 'Friday', 'Saturday'];
-
-            for (let i = 0; i < myDayArr.length; i++) {
-                const myDayString = myDayArr[i];
-                day.innerHTML = myDayString;
-                break;
-            }
+            document.getElementById("hours").innerHTML = doubleDigit(datestr.getHours());
+            document.getElementById("minutes").innerHTML = doubleDigit(datestr.getMinutes());
+            document.getElementById("seconds").innerHTML = doubleDigit(datestr.getSeconds());
+            document.getElementById("dates").innerHTML = `${datestr.getDate()} / ${datestr.getMonth()} / ${datestr.getFullYear()}`;
+            document.getElementById("days").innerHTML = dayarr[datestr.getDay()];
         }, 1000);
-            </script>
+    </script>
 </body>
-
 </html>
